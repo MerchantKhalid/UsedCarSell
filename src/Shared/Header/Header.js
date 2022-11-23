@@ -9,9 +9,10 @@ const Header = () => {
 
     const menuItems = <>
         <li><Link to='/' className='font-bold'>Home</Link> </li>
-        <li><Link to='/' className='font-bold'>About</Link> </li>
+        <li><Link to='/categories' className='font-bold'>Categories</Link> </li>
+        <li><Link to='/advertiseitems' className='font-bold'>Advertised Items</Link> </li>
         <li><Link to='/blog' className='font-bold'>Blog</Link> </li>
-        <li><Link to='/' className='font-bold'>Services</Link> </li>
+        
         {
           !user?<li><Link to='/login' className='font-bold'>Login</Link> </li>:
           <li><Link onClick={logout} className='font-bold'>Log Out</Link> </li>
