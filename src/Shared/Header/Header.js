@@ -3,6 +3,7 @@ import logo from '../../assets/icons/check.svg'
 import {Link} from 'react-router-dom'
 import { AuthContext } from '../../ContextApi/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import Categories from '../../Pages/Categories/Categories';
 const Header = () => {
   const {user,logout} = useContext(AuthContext)  
   console.log(user)
@@ -15,7 +16,10 @@ const Header = () => {
         
         {
           !user?<li><Link to='/login' className='font-bold'>Login</Link> </li>:
-          <li><Link onClick={logout} className='font-bold'>Log Out</Link> </li>
+         <>
+         <li><Link onClick={logout} className='font-bold'>Log Out</Link> </li>
+         
+         </>
         }
     </>
 
@@ -44,6 +48,7 @@ const Header = () => {
   <ul className="menu menu-horizontal p-0">
       {menuItems}
     </ul>
+  
     
   </div>
   
@@ -63,6 +68,7 @@ const Header = () => {
      </div> 
     <div><Link to='/' className="btn ml-5">Appointment</Link></div>
   </div>
+  
 </div>
     );
 };

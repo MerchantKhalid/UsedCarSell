@@ -2,6 +2,7 @@
 import Main from "../Layout/Main/Main";
 import AllCategories from "../Pages/AllCategories/AllCategories";
 import Blog from "../Pages/Blog/Blog";
+import Car from "../Pages/Car/Car";
 import Categories from "../Pages/Categories/Categories";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -29,11 +30,18 @@ const router = createBrowserRouter([
             },
             {
                 path:'/categories',
-                element:<PrivateRoute><Categories /></PrivateRoute>
+                element:<PrivateRoute><Categories /></PrivateRoute>,
+
             },
             {
                 path:'/allcategories/:id',
-                element:<AllCategories />
+                element:<AllCategories />,
+                loader:({params})=>fetch(`http://localhost:5000/allcategories/${params.id}`)
+            },
+            {
+                path:'/car/:id',
+                element:<Car />,
+                loader:({params})=>fetch(`http://localhost:5000/car${params.id}`)
             },
             {
                 path:'/blog',
