@@ -2,7 +2,7 @@ import React from 'react';
 
 const CarSummaryCard = ({car}) => {
     const {_id,model,location,resale_price,original_price,years_of_use,image_url} = car
-    console.log(car)
+    
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
   <figure><img src={image_url} alt="Shoes" /></figure>
