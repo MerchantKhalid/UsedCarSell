@@ -35,13 +35,13 @@ const router = createBrowserRouter([
             },
             {
                 path:'/allcategories/:id',
-                element:<AllCategories />,
+                element:<PrivateRoute><AllCategories /></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/allcategories/${params.id}`)
             },
             {
                 path:'/car/:id',
-                element:<Car />,
-                loader:({params})=>fetch(`http://localhost:5000/car${params.id}`)
+                element:<PrivateRoute><Car /></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`)
             },
             {
                 path:'/blog',
