@@ -7,6 +7,7 @@ import Car from "../Pages/Car/Car";
 import Categories from "../Pages/Categories/Categories";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import SellerAccount from "../Pages/SellerAccount/SellerAccount";
 
 import Signup from "../Pages/Signup/Signup";
 import PrivateRoute from "./PrivateRoute";
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path:'/signup',
                 element:<Signup />
+            },
+            {
+                path:'/selleraccount',
+                element:<SellerAccount />
             },
             {
                 path:'/categories',

@@ -16,10 +16,22 @@ const BookingModal = () => {
         const form = event.target;
         const name = form.name.value
         const email = form.email.value
+        const price = form.price.value
         const phone = form.phone.value
+        const location = form.location.value
+
+        const booking = {
+            name,
+            email,
+            price,
+            phone,
+            location,
+            model
+
+        }
         toast.success('Booking Confirmed')
         navigate('/')
-        console.log(name,email,phone)
+        console.log(booking)
         
     }
    

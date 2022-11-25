@@ -13,9 +13,12 @@ const Header = () => {
         <li><Link to='/categories' className='font-bold'>Categories</Link> </li>
         <li><Link to='/advertiseitems' className='font-bold'>Advertised Items</Link> </li>
         <li><Link to='/blog' className='font-bold'>Blog</Link> </li>
+      
         
         {
-          !user?<li><Link to='/login' className='font-bold'>Login</Link> </li>:
+          !user?<><li><Link to='/login' className='font-bold'>Login</Link> </li>
+          
+          </>:
          <>
          <li><Link onClick={logout} className='font-bold'>Log Out</Link> </li>
          
