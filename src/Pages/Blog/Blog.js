@@ -1,4 +1,5 @@
 import React from 'react';
+import About from '../About/About'
 
 const Blog = () => {
     return (
@@ -12,6 +13,7 @@ const Blog = () => {
                         For global state solution Redux, MobX and built in context api can e used. 
                     </h3>
             </div>
+            <br />
             <hr></hr>
             <div>      
             <h2 className='font-bold'>2.How does prototypical inheritance work?</h2>
@@ -24,6 +26,7 @@ const Blog = () => {
                     JavaScript does not support multiple inheritance. Inheritance of property values occurs at run time by JavaScript searching the prototype chain of an object to find a value. Because an object has a single associated prototype, JavaScript cannot dynamically inherit from more than one prototype chain.
                 </h3>
                 </div>
+                <br />
                 <hr></hr>
 
                 <div>
@@ -44,7 +47,32 @@ const Blog = () => {
                         </h3>
                     </h3>
                 </div>
+                <br />
                 <hr></hr>
+                <br />
+                <br />
+                <div>
+                    <h2 className='font-bold'>4.What is  the difference between React vs. Angular vs. Vue?</h2>
+                    <h3> Angular is an open-source JavaScript framework that is currently the oldest on the market and is considered the best platform when it comes to front-end development.
+
+Based on TypeScript , Angular is considered a heavyweight framework and used for mobile and desktop PCs. It was developed with MVC (Model-View-Controller), which has powerful features for developers to build rich, single-page applications.</h3><br />
+
+<h2>
+React is a JavaScript library built by Facebook and launched in 2013. React is known for its efficiency and dynamism, as well as its backwards compatibility and seamless integration with other frameworks. It is maintained by a large community of users and developers.
+</h2> <br />
+<h2>
+Vue is the newest JavaScript framework, created by a former Google developer.
+
+Vue.js is one of the best JavaScript development frameworks, used to improve web page interfaces. It is an open source, dynamic, simple, lightweight and fully backward compatible framework.
+</h2><br />
+
+</div>
+<hr></hr>
+<br />
+
+<About />
+
+                
         </section>
     );
 };

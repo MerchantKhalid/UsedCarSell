@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import SellerAccount from "../Pages/SellerAccount/SellerAccount";
 
 import Signup from "../Pages/Signup/Signup";
+import ErrorElement from "./ErrorElement";
 import PrivateRoute from "./PrivateRoute";
 const {createBrowserRouter } = require( "react-router-dom");
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     {
         path:'/',
         element:<Main />,
+        errorElement:<ErrorElement />,
         children:[
             {
                 path:'/',
@@ -56,7 +58,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/blog',
-                element: <PrivateRoute><Blog /></PrivateRoute>
+                element:<Blog />
             }
         ]
     }
