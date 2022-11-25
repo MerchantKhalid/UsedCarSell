@@ -2,6 +2,7 @@
 import Main from "../Layout/Main/Main";
 import AllCategories from "../Pages/AllCategories/AllCategories";
 import Blog from "../Pages/Blog/Blog";
+import BookingModal from "../Pages/BookingModal/BookingModal";
 import Car from "../Pages/Car/Car";
 import Categories from "../Pages/Categories/Categories";
 import Home from "../Pages/Home/Home";
@@ -41,6 +42,11 @@ const router = createBrowserRouter([
             {
                 path:'/car/:id',
                 element:<PrivateRoute><Car /></PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`)
+            },
+            {
+                path:'/car/:id',
+                element:<PrivateRoute><BookingModal /></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`)
             },
             {

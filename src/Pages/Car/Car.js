@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import { Link } from 'react-router-dom';
+import BookingModal from '../BookingModal/BookingModal';
 
 const Car = () => {
     const detailsCar = useLoaderData()
+    const [usedCar,setUsedCar] = useState(null) 
+
     const {_id,model,location,resale_price,original_price,years_of_use,image_url,details
     } = detailsCar
     console.log(detailsCar)
@@ -25,12 +28,15 @@ const Car = () => {
              <p className='font-bold'> {details}</p>
           <div className="card-actions justify-start w-75 mt-5">
               <button onClick={()=>window.history.back()} className="btn btn-dark">Go Back</button>
-              <button className="btn btn-dark">Book Now</button>   
+              <label  htmlFor="booking-modal" className="btn btn-dark">Book Now</label> 
           </div>
       
         </div>
         </div>
       </div>
+      <BookingModal
+       detailsCar ={detailsCar}
+      ></BookingModal>
       </div>
     );
 };

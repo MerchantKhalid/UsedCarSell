@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BookingModal from '../../Pages/BookingModal/BookingModal';
 
 const CarSummaryCard = ({car}) => {
     console.log(car)
@@ -23,7 +24,7 @@ const CarSummaryCard = ({car}) => {
     <div className="card-actions justify-start mt-3">
         <button className="btn btn-dark"><Link to={`/car/${_id}`}>Explore More</Link></button>
     </div>
-
+      <BookingModal></BookingModal>
   </div>
 </div>
     );
