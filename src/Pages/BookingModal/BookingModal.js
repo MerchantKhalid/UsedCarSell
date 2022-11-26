@@ -39,11 +39,16 @@ const BookingModal = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
+            if(data.acknowledged){
+                toast.success(`Booking Confirmed for ${booking.model}` )
+               navigate('/')
+            }else{
+                toast.error(data.message)
+            }
         })
 
 
-        toast.success('Booking Confirmed')
-        navigate('/')
+        
         console.log(booking)
         
     }
