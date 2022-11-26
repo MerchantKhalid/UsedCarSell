@@ -22,7 +22,7 @@ const CarSummaryCard = ({car}) => {
       <div className="font-bold badge badge-outline">Seller:{car.seller.name}</div> 
         
     <div className="card-actions justify-start mt-3">
-        <button className="btn btn-dark"><Link to={`/car/${_id}`}>Explore More</Link></button>
+        <button className="btn btn-dark"><Link to={`/alldata/${_id}`}>Explore More</Link></button>
     </div>
       <BookingModal></BookingModal>
   </div>

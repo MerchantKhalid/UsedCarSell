@@ -5,13 +5,14 @@ import { AuthContext } from '../../ContextApi/AuthProvider';
 import { FaFacebook, FaGithub, FaGoogle, FaMicrosoft } from "react-icons/fa";
 import {FcGoogle} from "react-icons/fc";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 
 
 const Signup = () => {
     const [error,setError] = useState('') 
 
-    const {createUser,providerLogin} = useContext(AuthContext)
+    const {createUser,providerLogin,updateUser } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     
@@ -30,6 +31,15 @@ const Signup = () => {
         .then(result=>{
             const user = result.user
             console.log(user)
+            toast.success('User Created Successfully')
+            const userinfo ={
+                displayName:name
+            }
+            updateUser(userinfo)
+             .then(()=>{})
+            .catch(err=>{
+              setError(error.message)
+            })
             form.reset()
             setError('')
             navigate('/')
@@ -101,7 +111,7 @@ const handleFacebook =(provider)=>{
                 </label>
                 <input type="password"  name='password' placeholder="password" className="input input-bordered" />
                 <label className="label">
-                  <a className='text-red-600'> {error}</a>
+                  <p className='text-red-600'> {error}</p>
                 </label>
               </div>
               <div className="form-control mt-6">

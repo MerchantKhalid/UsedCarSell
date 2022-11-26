@@ -6,10 +6,10 @@ import Categories from '../Categories/Categories';
 
 const AllCategories = () => {
     const brand = useLoaderData()
-    // console.log(brand )
+    console.log('rt',brand )
     
-    const [categories,setCategories] = useState([])
-    console.log(categories)
+    const [allcategories,setCategories] = useState([])
+    
     useEffect(()=>{
         fetch('http://localhost:5000/car-category')
         .then(res=>res.json())
@@ -20,8 +20,8 @@ const AllCategories = () => {
     return (
     <div>
         <div className='grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-5 bg-black p-5 text-white font-bold mb-5'>
-            {categories.map(category=><p key={category.id}>
-                <Link to={`/allcategories/${category.id}`}>{category.name}</Link>
+            {allcategories.map(category=><p key={category._id}>
+                <Link to={`/allcategories/${category._id}`}>{category.name}</Link>
             </p>)}
         </div>
 

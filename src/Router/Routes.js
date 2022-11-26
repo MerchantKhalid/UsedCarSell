@@ -1,4 +1,5 @@
 
+import DashBoard from "../assets/DashBoard/DashBoard";
 import Main from "../Layout/Main/Main";
 import AllCategories from "../Pages/AllCategories/AllCategories";
 import Blog from "../Pages/Blog/Blog";
@@ -47,12 +48,12 @@ const router = createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:5000/allcategories/${params.id}`)
             },
             {
-                path:'/car/:id',
+                path:'/alldata/:id',
                 element:<PrivateRoute><Car /></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`)
             },
             {
-                path:'/car/:id',
+                path:'/alldata/:id',
                 element:<PrivateRoute><BookingModal /></PrivateRoute>,
                 loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`)
             },
@@ -61,6 +62,11 @@ const router = createBrowserRouter([
                 element:<Blog />
             }
         ]
-    }
+    },
+    {
+        path:'/dashboard',
+        element:<DashBoard />
+    },
+
 ])
 export default router;

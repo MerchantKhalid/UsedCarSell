@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import logo from '../../assets/icons/check.svg'
 import {Link} from 'react-router-dom'
 import { AuthContext } from '../../ContextApi/AuthProvider';
-import { FaUser } from 'react-icons/fa';
+import { FaAddressBook, FaUser } from 'react-icons/fa';
 import Categories from '../../Pages/Categories/Categories';
 const Header = () => {
   const {user,logout} = useContext(AuthContext)  
@@ -20,6 +20,7 @@ const Header = () => {
           
           </>:
          <>
+         <li><Link to='/dashboard' className='font-bold'>Dashboard</Link> </li>
          <li><Link onClick={logout} className='font-bold'>Log Out</Link> </li>
          
          </>
@@ -59,9 +60,14 @@ const Header = () => {
      <div>
       {
         user && <>
-        <div className="avatar">
+        <div className="avatar mt-3">
           <div className="w-12">
-             <img src={user?.photoURL} alt=""></img>
+             
+              {user?.photoURL && <>
+                <img src={user?.photoURL} alt=""></img>: <FaUser />
+              </> 
+              }
+             
         </div>
         <p className='mt-3 font-bold ml-1'>{user?.displayName}</p>
       </div>
