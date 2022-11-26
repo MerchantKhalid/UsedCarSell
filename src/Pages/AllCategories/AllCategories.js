@@ -20,8 +20,8 @@ const AllCategories = () => {
     return (
     <div>
         <div className='grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-5 bg-black p-5 text-white font-bold mb-5'>
-            {allcategories.map(category=><p key={category._id}>
-                <Link to={`/allcategories/${category._id}`}>{category.name}</Link>
+            {allcategories.map(category=><p key={category.id}>
+                <Link to={`/allcategories/${category.id}`}>{category.name}</Link>
             </p>)}
         </div>
 

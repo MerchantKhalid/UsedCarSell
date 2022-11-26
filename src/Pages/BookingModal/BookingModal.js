@@ -29,6 +29,19 @@ const BookingModal = () => {
             model
 
         }
+        fetch('http://localhost:5000/booking',{
+            method:'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(booking)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+        })
+
+
         toast.success('Booking Confirmed')
         navigate('/')
         console.log(booking)
