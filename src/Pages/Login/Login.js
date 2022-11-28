@@ -23,6 +23,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/' 
 
     const handleLogin =event=>{
+        setError('')
         event.preventDefault()
         const form = event.target
         const email = form.email.value
@@ -30,10 +31,11 @@ const Login = () => {
 
         login(email,password)
         .then(result=>{
+          setError('')
             const user = result.user
             console.log(user)
             form.reset()
-            setError('')
+            
             navigate(from,{replace:true})
         })
         .catch(error=>{
@@ -46,10 +48,11 @@ const Login = () => {
     const handleGoogle =(provider)=>{
           providerLogin(gProvider)
           .then(result=>{
+            setError('')
             const user = result.user
             console.log(user)
             
-            setError('')
+            
             navigate(from,{replace:true})
         })
         .catch(error=>{
@@ -62,10 +65,11 @@ const Login = () => {
     const handleFacebook =(provider)=>{
       providerLogin(fProvider)
       .then(result=>{
+        setError('')
         const user = result.user
         console.log(user)
         
-        setError('')
+        
         navigate(from,{replace:true})
     })
     .catch(error=>{

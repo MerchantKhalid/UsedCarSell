@@ -6,6 +6,7 @@ import { FaFacebook, FaGithub, FaGoogle, FaMicrosoft } from "react-icons/fa";
 import {FcGoogle} from "react-icons/fc";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import useToken from '../../Hooks/useToken';
 
 
 
@@ -19,9 +20,16 @@ const Signup = () => {
     const gProvider = new GoogleAuthProvider();
     const fProvider = new FacebookAuthProvider();
     const from = location.state?.from?.pathname || '/' 
+    const [createdUserEmail,setCreatedUserEmail]= useState('')
+    const [token]= useToken(createdUserEmail)
+
+    if(token){
+      navigate('/')
+    }
 
     const handleSignin =(event)=>{
         event.preventDefault()
+        setError('')
         const form = event.target
         const name = form.name.value;
         const email = form.email.value
@@ -36,13 +44,15 @@ const Signup = () => {
                 displayName:name
             }
             updateUser(userinfo)
-             .then(()=>{})
+             .then(()=>{
+              saveUser(name,email)
+             })
             .catch(err=>{
               setError(error.message)
             })
             form.reset()
-            setError('')
-            navigate('/')
+            // setError('')
+            // navigate('/')
             
         })
         .catch(error=>{
@@ -82,6 +92,38 @@ const handleFacebook =(provider)=>{
   setError(error.message)
 })
 }
+
+const saveUser = (name,email)=>{
+  const user={name,email} 
+  fetch('https://warehouse-server-two.vercel.app/users',{
+    method:'POST',
+    headers:{
+      'content-type' : 'application/json'
+    },
+    body:JSON.stringify(user)
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    console.log(data)
+    setCreatedUserEmail(email)
+  })
+}
+
+// jwt
+// const getUserToken = email=>{
+//     fetch(`https://warehouse-server-two.vercel.app/jwt?email=${email}`)
+//     .then(res=>res.json())
+//     .then(data=>{
+//       if(data.accessToken){
+//         localStorage.setItem('accessToken',data.accessToken)
+//         navigate('/')
+//       }
+//     })
+// }
+
+
+
+
 
     return (
         <div className="hero w-full">

@@ -1,6 +1,9 @@
 
 import DashBoard from "../assets/DashBoard/DashBoard";
+import DashboardLayout from "../assets/DashBoard/DashboardLayout";
+import MyAppointment from "../assets/DashBoard/MyAppointment/MyAppointment";
 import Main from "../Layout/Main/Main";
+import Advertise from "../Pages/Advertise/Advertise";
 import AllCategories from "../Pages/AllCategories/AllCategories";
 import Blog from "../Pages/Blog/Blog";
 import BookingModal from "../Pages/BookingModal/BookingModal";
@@ -45,27 +48,37 @@ const router = createBrowserRouter([
             {
                 path:'/allcategories/:id',
                 element:<PrivateRoute><AllCategories /></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/allcategories/${params.id}`)
+                loader:({params})=>fetch(`https://warehouse-server-two.vercel.app/allcategories/${params.id}`)
             },
             {
                 path:'/alldata/:id',
                 element:<PrivateRoute><Car /></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`)
+                loader:({params})=>fetch(`https://warehouse-server-two.vercel.app/alldata/${params.id}`)
             },
             {
                 path:'/alldata/:id',
                 element:<PrivateRoute><BookingModal /></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/car/${params.id}`)
+                loader:({params})=>fetch(`https://warehouse-server-two.vercel.app/alldata/${params.id}`)
             },
             {
                 path:'/blog',
                 element:<Blog />
-            }
+            },
+            {
+                path:'/advertise',
+                element:<Advertise />
+            },
         ]
     },
     {
         path:'/dashboard',
-        element:<DashBoard />
+        element:<PrivateRoute><DashboardLayout /></PrivateRoute>,
+        children:[
+            {
+              path:'/dashboard',
+              element:<MyAppointment />,
+            }
+        ]
     },
 
 ])

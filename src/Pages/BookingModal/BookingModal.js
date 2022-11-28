@@ -29,7 +29,7 @@ const BookingModal = () => {
             model
 
         }
-        fetch('http://localhost:5000/booking',{
+        fetch('https://warehouse-server-two.vercel.app/booking',{
             method:'POST',
             headers: {
                 'content-type' : 'application/json'

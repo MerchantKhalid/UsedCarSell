@@ -12,8 +12,8 @@ const Services = () => {
     return (
         <div>
             <div className='text-center'>
-                <p className='text-2xl text-orange-600 font-bold'>Services</p>
-                <h2 className='text-5xl font-bold'>Our Service Area</h2>
+                <p className='text-2xl text-orange-600 font-bold'>Advertise Item</p>
+                <h2 className='text-5xl font-bold'>Our Exotic Collection</h2>
                 <p className='text-gray-600'>Dernier Track every stock move from purchase to warehouse bin to sales order. Trace lots and serial <br /> numbers everywhere in your supply chain.</p>
             </div>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5'>
@@ -24,6 +24,7 @@ const Services = () => {
                 ></ServiceCard>)
             }
             </div>
+            <div className='divider'></div>
         </div>
     );
 };
