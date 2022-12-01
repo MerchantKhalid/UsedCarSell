@@ -8,7 +8,7 @@ import Services from '../Services/Services';
 const Categories = () => {
     const [allCategories,setCategories] = useState([])
     useEffect(()=>{
-        fetch('https://warehouse-server-two.vercel.app/car-category')
+        fetch('http://localhost:5000/car-category')
         .then(res=>res.json())
         .then(data=>setCategories(data))
     },[])
@@ -20,7 +20,7 @@ const Categories = () => {
         <div className='grid grid-cols-5 gap-5 font-bold mb-5'>
          
             {allCategories.map(category=><p key={category._id}>
-                <Link to={`/allcategories/${category._id}`}>{category.name}</Link>
+                <Link to={`/allcategories/${category.categoryid}`}>{category.name}</Link>
             </p>)}
         </div>
         

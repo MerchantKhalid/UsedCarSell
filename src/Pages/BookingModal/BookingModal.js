@@ -29,7 +29,7 @@ const BookingModal = () => {
             model
 
         }
-        fetch('https://warehouse-server-two.vercel.app/booking',{
+        fetch('http://localhost:5000/booking',{
             method:'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -65,6 +65,7 @@ const BookingModal = () => {
                <input type="text" name='email' value={user.email} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
                <input type="text" name='location' value={location} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
                <input type="text" name='price' value={resale_price} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
+               <input type="text" name='meetingLocation' placeholder ="Meeting Location"  className="mb-3 input input-bordered w-full max-w-xs" />
                <input type="text" name='phone' placeholder="Phone" className="mb-3 input input-bordered w-full max-w-xs" />
                <input type='submit' value='Submit' className='w-full max-w-xs btn btn-dark'></input>
             </form>

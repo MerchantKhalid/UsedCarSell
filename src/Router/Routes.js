@@ -48,17 +48,17 @@ const router = createBrowserRouter([
             {
                 path:'/allcategories/:id',
                 element:<PrivateRoute><AllCategories /></PrivateRoute>,
-                loader:({params})=>fetch(`https://warehouse-server-two.vercel.app/allcategories/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/allcategories/${params.id}`)
             },
             {
                 path:'/alldata/:id',
                 element:<PrivateRoute><Car /></PrivateRoute>,
-                loader:({params})=>fetch(`https://warehouse-server-two.vercel.app/alldata/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/alldata/${params.id}`)
             },
             {
                 path:'/alldata/:id',
                 element:<PrivateRoute><BookingModal /></PrivateRoute>,
-                loader:({params})=>fetch(`https://warehouse-server-two.vercel.app/alldata/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/alldata/${params.id}`)
             },
             {
                 path:'/blog',

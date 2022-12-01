@@ -95,7 +95,7 @@ const handleFacebook =(provider)=>{
 
 const saveUser = (name,email)=>{
   const user={name,email} 
-  fetch('https://warehouse-server-two.vercel.app/users',{
+  fetch('http://localhost:5000/users',{
     method:'POST',
     headers:{
       'content-type' : 'application/json'
@@ -111,7 +111,7 @@ const saveUser = (name,email)=>{
 
 // jwt
 // const getUserToken = email=>{
-//     fetch(`https://warehouse-server-two.vercel.app/jwt?email=${email}`)
+//     fetch(`http://localhost:5000/jwt?email=${email}`)
 //     .then(res=>res.json())
 //     .then(data=>{
 //       if(data.accessToken){

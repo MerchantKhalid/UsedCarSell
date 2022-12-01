@@ -11,7 +11,7 @@ const AllCategories = () => {
     const [allcategories,setCategories] = useState([])
     
     useEffect(()=>{
-        fetch('https://warehouse-server-two.vercel.app/car-category')
+        fetch('http://localhost:5000/car-category')
         .then(res=>res.json())
         .then(data=>setCategories(data))
     },[])
@@ -21,7 +21,7 @@ const AllCategories = () => {
     <div>
         <div className='grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-5 bg-black p-5 text-white font-bold mb-5'>
             {allcategories.map(category=><p key={category._id}>
-                <Link to={`/allcategories/${category._id}`}>{category.name}</Link>
+                <Link to={`/allcategories/${category.categoryid}`}>{category.name}</Link>
             </p>)}
         </div>
 

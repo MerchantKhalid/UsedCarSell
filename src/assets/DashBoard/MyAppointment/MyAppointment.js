@@ -5,7 +5,7 @@ import { AuthContext } from '../../../ContextApi/AuthProvider';
 
 const MyAppointment = () => {
     const {user} = useContext(AuthContext)
-    const url=`https://warehouse-server-two.vercel.app/bookings?email=${user?.email}`
+    const url=`http://localhost:5000/bookings?email=${user?.email}`
     const {data :bookings=[]}= useQuery({
         queryKey:['bookings',user?.email],
         queryFn: async()=>{
