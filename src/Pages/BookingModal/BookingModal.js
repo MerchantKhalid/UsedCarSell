@@ -18,7 +18,8 @@ const BookingModal = () => {
         const email = form.email.value
         const price = form.price.value
         const phone = form.phone.value
-        const location = form.location.value
+        const model = form.model.value
+        const meetingLocation = form.meetingLocation.value
 
         const booking = {
             name,
@@ -26,7 +27,8 @@ const BookingModal = () => {
             price,
             phone,
             location,
-            model
+            model,
+            meetingLocation
 
         }
         fetch('http://localhost:5000/booking',{
@@ -40,7 +42,7 @@ const BookingModal = () => {
         .then(data=>{
             console.log(data)
             if(data.acknowledged){
-                toast.success(`Booking Confirmed for ${booking.model}` )
+                toast.success(`Booking Confirmed for ${booking.model} in ${ meetingLocation}` )
                navigate('/')
             }else{
                 toast.error(data.message)
@@ -62,11 +64,11 @@ const BookingModal = () => {
             <h3 className='text-lg font-bold text-center mb-2'>Car Model:{model}</h3> 
             <form onSubmit={handleBooking} className='text-center'>
                <input type="text" name='name' value={user.displayName} disabled className="mb-3 input input-bordered w-full max-w-xs" />
-               <input type="text" name='email' value={user.email} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
-               <input type="text" name='location' value={location} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
+               <input type="email" name='email' value={user.email} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
+               <input type="text" name='model' value={model} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
                <input type="text" name='price' value={resale_price} disabled  className="mb-3 input input-bordered w-full max-w-xs" />
-               <input type="text" name='meetingLocation' placeholder ="Meeting Location"  className="mb-3 input input-bordered w-full max-w-xs" />
-               <input type="text" name='phone' placeholder="Phone" className="mb-3 input input-bordered w-full max-w-xs" />
+               <input type="text" name='meetingLocation' placeholder ="Meeting Location"  className="mb-3 input input-bordered w-full max-w-xs" required />
+               <input type="text" name='phone' placeholder="Phone" className="mb-3 input input-bordered w-full max-w-xs" required />
                <input type='submit' value='Submit' className='w-full max-w-xs btn btn-dark'></input>
             </form>
             <div className="modal-action">

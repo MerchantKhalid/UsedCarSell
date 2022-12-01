@@ -12,7 +12,7 @@ const CarCard = ({car}) => {
     <div className="card-body">
     <p className='text-end font-bold'>Post Date:{car.seller.posted_date}</p>
     <h2 className="card-title">
-       Model: {model}
+       Model Name: {model}
     </h2>
       <div className="font-bold badge badge-outline">Original Price:${original_price}</div>
       <div className="font-bold badge badge-outline">Resale Price:${resale_price}</div> 
