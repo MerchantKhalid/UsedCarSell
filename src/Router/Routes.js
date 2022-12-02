@@ -1,7 +1,9 @@
 
+import AddProduct from "../assets/DashBoard/AddProduct/AddProduct";
 import DashBoard from "../assets/DashBoard/DashBoard";
 import DashboardLayout from "../assets/DashBoard/DashboardLayout";
 import MyAppointment from "../assets/DashBoard/MyAppointment/MyAppointment";
+import MyProduct from "../assets/DashBoard/MyProduct/MyProduct";
 import Main from "../Layout/Main/Main";
 import Advertise from "../Pages/Advertise/Advertise";
 import AllCategories from "../Pages/AllCategories/AllCategories";
@@ -77,7 +79,17 @@ const router = createBrowserRouter([
             {
               path:'/dashboard',
               element:<MyAppointment />,
-            }
+            },
+            {
+              path:'/dashboard/addproduct',
+              element:<AddProduct />,
+            },
+            {
+              path:'/dashboard/myproduct',
+              element:<MyProduct />,
+              loader:()=>fetch(`http://localhost:5000/addedproduct`)
+            },
+            
         ]
     },
 

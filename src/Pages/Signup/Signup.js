@@ -23,9 +23,9 @@ const Signup = () => {
     const [createdUserEmail,setCreatedUserEmail]= useState('')
     const [token]= useToken(createdUserEmail)
 
-    if(token){
-      navigate('/')
-    }
+    // if(token){
+    //   navigate('/')
+    // }
 
     const handleSignin =(event)=>{
         event.preventDefault()
@@ -51,8 +51,8 @@ const Signup = () => {
               setError(error.message)
             })
             form.reset()
-            // setError('')
-            // navigate('/')
+            setError('')
+            navigate('/')
             
         })
         .catch(error=>{
@@ -105,6 +105,7 @@ const saveUser = (name,email)=>{
   .then(res=>res.json())
   .then(data=>{
     console.log(data)
+    navigate('/')
     setCreatedUserEmail(email)
   })
 }

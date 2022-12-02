@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Outlet } from 'react-router';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../ContextApi/AuthProvider';
 import Header from '../../Shared/Header/Header';
 
 const DashboardLayout = () => {
+  const {user} = useContext(AuthContext) 
     return (
         <div>
            <Header />
@@ -15,9 +18,10 @@ const DashboardLayout = () => {
   <div className="drawer-side">
     <label htmlFor="dashboard-drawyer" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-     
-      <li><a>My Appointment </a></li>
-      <li><a>My Orders</a></li>
+     <li className='font-bold text-orange-600'>Seller Name: {user.displayName} </li>
+      <li><Link to=''>My Appointment </Link></li>
+      <li><Link to='/dashboard/addproduct'>Add Products</Link></li>
+      <li><Link to='/dashboard/myproduct'>My Product</Link></li>
     </ul>
   
   </div>
